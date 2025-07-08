@@ -1,49 +1,94 @@
-# Kidney-Disease-Classification-MLflow-DVC
+# Kidney-Diseas-Classification
 
+A deep learning project for classifying kidney diseases using CNN models, with MLflow for experiment tracking and DVC for data versioning.
 
-## Workflows
+## Project Structure
 
-1. Update config.yaml
-2. Update secrets.yaml [Optional]
-3. Update params.yaml
-4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline 
-8. Update the main.py
-9. Update the dvc.yaml
-10. app.py
-
-# How to run?
-### STEPS:
-
-Clone the repository
-
-```bash
-https://github.com/krishnaik06/Kidney-Disease-Classification-Deep-Learning-Project
 ```
-### STEP 01- Create a conda environment after opening the repository
-
-```bash
-conda create -n cnncls python=3.8 -y
+Kidney-Diseas-Classification/
+├── artifacts/            # Training artifacts
+├── config/               # Configuration files
+├── logs/                 # Training logs
+├── model/                # Saved models
+├── research/             # Jupyter notebooks for experimentation
+├── src/                  # Source code
+│   ├── cnnClassifier/    # Main package
+│   │   ├── components/   # Pipeline components
+│   │   ├── config/       # Configuration management
+│   │   ├── entity/       # Configuration entities
+│   │   ├── pipeline/     # Training pipelines
+│   │   └── utils/        # Utility functions
+└── templates/            # Web templates
 ```
 
+## Installation
+
+1. Clone the repository:
 ```bash
-conda activate cnncls
+git clone https://github.com/Tejas-Sinroja/Kidney-Diseas-Classification.git
+cd Kidney-Diseas-Classification
 ```
 
+2. Create and activate conda environment:
+```bash
+conda create -n kidney python=3.8 -y
+conda activate kidney
+```
 
-### STEP 02- install the requirements
+3. Install requirements:
 ```bash
 pip install -r requirements.txt
 ```
 
+4. Install DVC (if not already installed):
 ```bash
-# Finally run the following command
+pip install dvc
+```
+
+## Usage
+
+### Training Pipeline
+```bash
+python main.py
+```
+
+### Web Application
+```bash
 python app.py
 ```
 
-Now,
+### MLflow Tracking
+Start MLflow UI:
 ```bash
-open up you local host and port
+mlflow ui
 ```
+
+### DVC Commands
+Initialize DVC:
+```bash
+dvc init
+```
+
+Reproduce pipeline:
+```bash
+dvc repro
+```
+
+## Model Architecture
+The project uses a CNN-based architecture for kidney disease classification:
+- Input: CT scan images
+- Preprocessing: Normalization, resizing
+- Model: Custom CNN with multiple convolutional and pooling layers
+- Output: Disease classification probabilities
+
+## Configuration
+Update the following files as needed:
+- `config/config.yaml` - Main configuration
+- `params.yaml` - Training parameters
+- `.env` - Environment variables (create if not exists)
+
+## Contributing
+Contributions are welcome! Please fork the repository and create a pull request.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
